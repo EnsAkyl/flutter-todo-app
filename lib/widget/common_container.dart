@@ -13,7 +13,7 @@ class CommonContainer extends StatelessWidget {
     final colors = context.colorScheme;
     return Container(
       width: deviceSize.width,
-      height: deviceSize.height * (height ?? 0.25),
+      height: height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: colors.primaryContainer,
