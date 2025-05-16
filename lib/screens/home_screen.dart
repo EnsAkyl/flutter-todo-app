@@ -78,7 +78,27 @@ class HomeScreen extends StatelessWidget {
                       style: context.textTheme.headlineMedium,
                     ),
                     const Gap(15),
-                    DisplayListOfTask(tasks: [], isCompletedTasks: true),
+                    DisplayListOfTask(
+                      tasks: [
+                        Task(
+                          title: "title",
+                          note: "note",
+                          time: "13.45",
+                          date: "April",
+                          isCompleted: true,
+                          category: TaskCategories.important,
+                        ),
+                        Task(
+                          title: "title2",
+                          note: "note2",
+                          time: "16.43",
+                          date: "April",
+                          isCompleted: true,
+                          category: TaskCategories.remember,
+                        ),
+                      ],
+                      isCompletedTasks: true,
+                    ),
 
                     const Gap(15),
 
