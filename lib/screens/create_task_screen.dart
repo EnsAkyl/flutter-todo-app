@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:todo_app/widget/select_date_time.dart';
 import '../widget/widget.dart';
 
 class CreateTaskScreen extends StatelessWidget {
@@ -31,33 +32,9 @@ class CreateTaskScreen extends StatelessWidget {
               hintText: "Görev Tanımı Giriniz",
             ),
             const Gap(9),
-            Row(
-              children: [
-                Expanded(
-                  child: CommonTextField(
-                    title: "Görev Tarih",
-                    hintText: "18 Mayıs 2025",
-                    readOnly: true,
-                    suffixIcon: IconButton(
-                      onPressed: () {},
-                      icon: const FaIcon(FontAwesomeIcons.clock),
-                    ),
-                  ),
-                ),
-                const Gap(6),
-                Expanded(
-                  child: CommonTextField(
-                    title: "Görev Saati",
-                    hintText: "03:21",
-                    readOnly: true,
-                    suffixIcon: IconButton(
-                      onPressed: () {},
-                      icon: const FaIcon(FontAwesomeIcons.calendar),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+
+            const SelectDateTime(),
+
             const Gap(9),
             const CommonTextField(
               title: "Görev Açıklaması",
