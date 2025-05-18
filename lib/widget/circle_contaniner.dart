@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import '../data/data.dart';
 
 class CircleContaniner extends StatelessWidget {
-  const CircleContaniner({super.key, required this.color, required this.child});
+  const CircleContaniner({super.key, required this.color, this.child});
 
   final Color color;
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {

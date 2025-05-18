@@ -21,35 +21,39 @@ class CreateTaskScreen extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      body: SingleChildScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const CommonTextField(
-              title: "Görev Tanımı",
-              hintText: "Görev Tanımı Giriniz",
-            ),
-            const Gap(9),
-
-            const SelectDateTime(),
-
-            const Gap(9),
-            const CommonTextField(
-              title: "Görev Açıklaması",
-              hintText: "Görev Açıklaması Giriniz",
-              maxLines: 7,
-            ),
-            const Gap(40),
-            FilledButton(
-              onPressed: () {},
-              child: const DisplayWhiteText(
-                text: "Yeni Görevi Ekle",
-                fontSize: 20,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const CommonTextField(
+                title: "Görev Tanımı",
+                hintText: "Görev Tanımı Giriniz",
               ),
-            ),
-          ],
+              const Gap(9),
+        
+              const SelectCategory(),
+        
+              const Gap(9),
+              const SelectDateTime(),
+              const Gap(9),
+              const CommonTextField(
+                title: "Görev Açıklaması",
+                hintText: "Görev Açıklaması Giriniz",
+                maxLines: 7,
+              ),
+              const Gap(40),
+              FilledButton(
+                onPressed: () {},
+                child: const DisplayWhiteText(
+                  text: "Yeni Görevi Ekle",
+                  fontSize: 20,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
