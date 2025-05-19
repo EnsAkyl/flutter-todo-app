@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_app/data/data.dart';
 import 'package:todo_app/utils/utils.dart';
 import 'package:todo_app/widget/widget.dart';
 
-class DisplayListOfTask extends StatelessWidget {
+class DisplayListOfTask extends ConsumerWidget {
   const DisplayListOfTask({
     super.key,
     required this.tasks,
@@ -14,7 +15,7 @@ class DisplayListOfTask extends StatelessWidget {
   final List<Task> tasks;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final deviceSize = context.deviceSize;
 
     final height =
@@ -40,8 +41,7 @@ class DisplayListOfTask extends StatelessWidget {
                   final task = tasks[index];
                   return InkWell(
                     onLongPress: () {
-
-
+                      AppAlerts.showDeleteAlertDialog(context, ref, task);
                     },
                     onTap: () async {
                       await showBottomSheet(
