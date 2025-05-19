@@ -35,8 +35,8 @@ class TaskDatasource {
         ${DBKeys.dateColumn} TEXT,
         ${DBKeys.timeColumn} TEXT,
         ${DBKeys.categoryColumn} TEXT,
-        ${DBKeys.isCompletedColumn} INTEGER,
-      )
+        ${DBKeys.isCompletedColumn} INTEGER)
+      
     ''');
   }
 
