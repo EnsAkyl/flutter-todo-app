@@ -8,6 +8,7 @@ import 'package:todo_app/config/routes/route_location.dart';
 import 'package:todo_app/data/data.dart';
 import 'package:todo_app/providers/date_provider.dart';
 import 'package:todo_app/providers/providers.dart';
+import 'package:todo_app/utils/app_alerts.dart';
 import 'package:todo_app/utils/helpers.dart';
 import 'package:todo_app/widget/select_date_time.dart';
 import '../widget/widget.dart';
@@ -99,10 +100,18 @@ class _CreateTaskScreenState extends ConsumerState<CreateTaskScreen> {
         category: category,
         isCompleted: false,
       );
-      await ref.read(taskProvider.notifier).createTask(task).then((value){
+      await ref.read(taskProvider.notifier).createTask(task).then((value) {
+        AppAlerts.displaySnackBar(
+          context,
+          'Görev Başarılı Bir Şekilde Atanmıştır',
+        );
         context.go(RouteLocation.home);
       });
-
+    } else {
+      AppAlerts.displaySnackBar(
+        context,
+        'Görev Tanımsız Devam Edemezsin',
+      );
     }
   }
 }
