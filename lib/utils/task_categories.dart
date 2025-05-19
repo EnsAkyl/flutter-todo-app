@@ -13,6 +13,16 @@ enum TaskCategories {
   important(Icons.warning, Colors.red),
   remember(Icons.edit_note, Colors.purpleAccent);
 
+  static TaskCategories stringToCategory(String name) {
+    try {
+      return TaskCategories.values.firstWhere(
+        (category) => category.name == name,
+      );
+    } catch (e) {
+      return TaskCategories.other;
+    }
+  }
+
   final IconData icon;
   final Color color;
 
