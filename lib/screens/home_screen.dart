@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/config/routes/routes.dart';
+import 'package:todo_app/data/data.dart';
 import 'package:todo_app/providers/providers.dart';
 import 'package:todo_app/utils/utils.dart';
 import 'package:todo_app/widget/widget.dart';
@@ -18,6 +19,8 @@ class HomeScreen extends ConsumerWidget {
     final colors = context.colorScheme;
     final deviceSize = context.deviceSize;
     final taskState = ref.watch(taskProvider);
+    final completedTasks = _completedTasks(taskState.tasks);
+    final notCompletedTask = _notcompletedTasks(taskState.tasks);
 
     return Scaffold(
       body: Stack(
@@ -57,7 +60,7 @@ class HomeScreen extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    DisplayListOfTask(tasks: taskState.tasks),
+                    DisplayListOfTask(tasks: completedTasks),
 
                     const Gap(15),
 
@@ -67,7 +70,7 @@ class HomeScreen extends ConsumerWidget {
                     ),
                     const Gap(15),
                     DisplayListOfTask(
-                      tasks: taskState.tasks,
+                      tasks: notCompletedTask,
                       isCompletedTasks: true,
                     ),
 
@@ -92,5 +95,25 @@ class HomeScreen extends ConsumerWidget {
         ],
       ),
     );
+  }
+
+  List<Task> _notcompletedTasks(List<Task> tasks) {
+    final List<Task> filteredTasks = [];
+    for (var task in tasks) {
+      if (task.isCompleted) {
+        filteredTasks.add(task);
+      }
+    }
+    return filteredTasks;
+  }
+
+  List<Task> _completedTasks(List<Task> tasks) {
+    final List<Task> filteredTasks = [];
+    for (var task in tasks) {
+      if (!task.isCompleted) {
+        filteredTasks.add(task);
+      }
+    }
+    return filteredTasks;
   }
 }
