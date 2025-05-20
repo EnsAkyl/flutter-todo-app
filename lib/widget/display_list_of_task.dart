@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_app/data/data.dart';
+import 'package:todo_app/providers/task/task.dart';
 import 'package:todo_app/utils/utils.dart';
 import 'package:todo_app/widget/widget.dart';
 
@@ -57,7 +58,22 @@ class DisplayListOfTask extends ConsumerWidget {
 
                       //Yo Do Detayları
                     },
-                    child: TaskTile(task: task),
+                    child: TaskTile(
+                      task: task,
+                      onCompleted: (value) async {
+                        await ref
+                            .read(taskProvider.notifier)
+                            .updateTask(task)
+                            .then((value) {
+                              AppAlerts.displaySnackBar(
+                                context,
+                                task.isCompleted
+                                    ? 'Görev Tamamlanmadı'
+                                    : 'Görev Tamamlandı',
+                              );
+                            });
+                      },
+                    ),
                   );
                 },
                 separatorBuilder: (BuildContext context, int index) {

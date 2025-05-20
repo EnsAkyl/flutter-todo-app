@@ -39,7 +39,7 @@ class HomeScreen extends ConsumerWidget {
                       DisplayWhiteText(text: "4 Nisan 2001", fontSize: 20),
                       Gap(10),
                       DisplayWhiteText(
-                        text: "Yo Do",
+                        text: "Too Doo",
                         fontSize: 35,
                         fontWeight: FontWeight.bold,
                       ),
