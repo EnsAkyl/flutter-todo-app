@@ -1,16 +1,29 @@
-# todo_app
+# To Do Uygulaması 📝
 
-A new Flutter project.
+Yapılacak görevlerinizi, işlemlerinizi, ayı yerden yönetmek ve bir plan çerçevesine sokmak için geliştirmiş bir mobil uygulama.
 
-## Getting Started
+## 📷 Ekran Görüntüleri
+Ana Ekran:
 
-This project is a starting point for a Flutter application.
+![img.png](img.png)
 
-A few resources to get you started if this is your first Flutter project:
+Yeni Görev Oluşturma Ekranı:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![img_1.png](img_1.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ⚙️ Kurulum
+1. Bu repoyu klonlamak için:
+  ```bash
+    https://github.com/EnsAkyl/flutter-todo-app.git
+  ```
+2. Gerekli bağımlılıkları yükleyin: **npm install**
+3. Uygulamayı Başlatın: **npm start**
+
+## 📦 Teknolojiler
+    - RivedPod
+    - Equatable
+    - Go 
+    - SQLFLite
+    - Path
+    - Intl
+
